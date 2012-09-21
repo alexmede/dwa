@@ -1,4 +1,4 @@
-/* Text highlight color for webkit and mozilla browsers */
+/* Text highlight color for webkit and mozilla browsers (uses non-validating pseudo-elements) */
 ::selection	{
 	color: #fff;
 	background: orange;
