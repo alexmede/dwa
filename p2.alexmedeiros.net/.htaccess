@@ -1,5 +1,8 @@
 RewriteEngine On
 
+rewritecond %{HTTP_HOST} ^www\.(.*) [NC]
+rewriterule ^/?(.*) http://%1/$1 [L,R=permanent]
+
 # Allow any files or directories that exist to be displayed directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
