@@ -38,10 +38,13 @@ class users_controller extends base_controller {
 		echo "You're signed up";
 	}
 	
-	public function login() {
+	public function login($error = NULL) {
 		# Setup view
 		$this->template->content = View::instance('v_users_login');
 		$this->template->title   = "Login";
+		
+		# Pass data to the view
+		$this->template->content->error = $error;
 		
 		# Render template
 		echo $this->template;
@@ -66,8 +69,8 @@ class users_controller extends base_controller {
 		# If we didn't get a token back, login failed
 		if(!$token) {
 			
-			# Send them back to the login page
-			Router::redirect("/users/login/");
+			# Send them back to the login page with an error
+			Router::redirect("/users/login/error");
 		
 		# But if we did, login succeeded!
 		} else {
@@ -108,18 +111,18 @@ class users_controller extends base_controller {
 			return false;
 		}
 
-			# Setup view
-			$this->template->content = View::instance('v_users_profile');
-			$this->template->title   = "Profile - ".$this->user->first_name;
+		# Setup view
+		$this->template->content = View::instance('v_users_profile');
+		$this->template->title   = "Profile - ".$this->user->first_name;
 			
-			# Load CSS
-			$client_files = Array(
-				"/css/main.css",
-	            );
-			$this->template->client_files = Utils::load_client_files($client_files);
+		# Load CSS
+		$client_files = Array(
+			"/css/main.css",
+		);
+		$this->template->client_files = Utils::load_client_files($client_files);
 			
-			# Render template
-			echo $this->template;
+		# Render template
+		echo $this->template;
 	}
 
 }
