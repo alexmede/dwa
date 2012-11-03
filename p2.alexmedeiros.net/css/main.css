@@ -1,0 +1,119 @@
+/* Text highlight color for webkit and mozilla browsers (uses non-validating pseudo-elements) */
+::selection	{
+	color: #fff;
+	background: orange;
+}
+
+::-moz-selection {
+	color: #fff;
+	background: orange;
+}
+
+
+/* Colorful links */
+a:link {
+	color: gray;
+	text-decoration: none;
+}
+
+a:visited {
+	color: gray;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #8ab8e5;
+	text-decoration: none;
+}
+
+a:active {
+	color: orange;
+	text-decoration: none;
+}
+
+
+/* Body attributes */
+body {
+	background: #1a1a1a;
+	color: #fff;
+	font-size: 14px;
+	font-family: sans-serif;
+	width: 800px;
+	margin-left: 90px;
+}
+
+
+/* Dividing border lines */
+#horiz {
+	width: auto;
+	border-top: 2px solid #fff;
+}
+
+#vert {
+	min-height: 247px;
+	border-left: 2px solid #fff;
+}
+
+
+/* Homepage link */
+#home {
+	margin: 0px 8px 5px;
+	font-size: 16px;
+	font-family: "Lucida Console";
+	text-shadow: 2px -1px 2px rgba(0,0,0,0.8);
+}
+
+#home a {
+	color: slategray;
+}
+
+#home a:hover {
+	color: orange;
+}
+
+
+/* Navigation bar style */
+#nav {
+	position: static;
+	float: left;
+	margin-top: 30px;
+	margin-left: -76px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "Courier New";
+}
+
+#nav ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+#nav li {
+	margin-top: 21px;
+}
+
+#nav a {
+	display: block;
+	width: 74px;
+	height: 17px;
+	color: orange;
+	border: 2px solid white;
+}
+
+#nav a:hover {
+	color: #8ab8e5;
+}
+
+
+/* Content style */
+.project_title {
+	margin: 15px;
+	font-weight: bold;
+	text-shadow: 1px 1px #646464;
+}
+
+.content {
+	margin: auto 25px;
+}
