@@ -22,7 +22,7 @@ class users_controller extends base_controller {
 	public function p_signup() {
 		# Setup view
 		$this->template->content = View::instance('v_users_p_signup');
-		$this->template->title   = "Signup";
+		$this->template->title   = "Sign up";
 		
 		# Encrypt the password
 		$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
