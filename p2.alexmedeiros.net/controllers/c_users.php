@@ -7,21 +7,22 @@ class users_controller extends base_controller {
 	} 
 	
 	public function index() {
-		echo "Welcome to the users's department";
+		header('Location: /users/directory/');
 	}
 	
 	public function signup() {
 		# Setup view
 		$this->template->content = View::instance('v_users_signup');
-		$this->template->title   = "Signup";
+		$this->template->title   = "Sign up";
 		
 		# Render template
 		echo $this->template;
 	}
 	
 	public function p_signup() {
-		# Dump out the results of POST to see what the form submitted
-		//print_r($_POST);
+		# Setup view
+		$this->template->content = View::instance('v_users_p_signup');
+		$this->template->title   = "Signup";
 		
 		# Encrypt the password
 		$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
@@ -34,8 +35,8 @@ class users_controller extends base_controller {
 		# Insert this user into the database
 		$user_id = DB::instance(DB_NAME)->insert("users", $_POST);
 		
-		# For now, just confirm they've signed up - we can make this fancier later
-		echo "You're signed up";
+		# Confirm the sign up and render template
+		echo $this->template;
 	}
 	
 	public function login($error = NULL) {
@@ -78,7 +79,7 @@ class users_controller extends base_controller {
 			# Store this token in a cookie
 			setcookie("token", $token, strtotime('+1 year'), '/');
 		
-			# Send them to the main page - or wherever you want them to go
+			# Redirect to the main page
 			Router::redirect("/");
 		}
 	}
@@ -104,7 +105,7 @@ class users_controller extends base_controller {
 	public function profile() {
 		# If user is blank, they're not logged in, show message and don't do anything else
 		if(!$this->user) {
-			echo "Members only. <a href='/users/login'>Login</a>";
+			Router::redirect("/");
 
 			# Return will force this method to exit here so the rest of 
 			# the code won't be executed and the profile view won't be displayed.
@@ -115,13 +116,26 @@ class users_controller extends base_controller {
 		$this->template->content = View::instance('v_users_profile');
 		$this->template->title   = "Profile - ".$this->user->first_name;
 			
-		# Load CSS
-		$client_files = Array(
-			"/css/main.css",
-		);
-		$this->template->client_files = Utils::load_client_files($client_files);
-			
 		# Render template
+		echo $this->template;
+	}
+	
+	public function directory() {
+		# Set up view
+		$this->template->content = View::instance("v_users_directory");
+		$this->template->title   = "All Users";
+		
+		# Query to get all users
+		$q = "SELECT *
+			FROM users";
+		
+		# Run query and store results in $directories
+		$directories = DB::instance(DB_NAME)->select_rows($q);
+		
+		# Pass data to view
+		$this->template->content->directories = $directories;
+		
+		# Render view
 		echo $this->template;
 	}
 

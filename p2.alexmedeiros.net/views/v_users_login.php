@@ -1,4 +1,4 @@
-<form method='POST' action='/users/p_login'>
+<form class='content' method='POST' action='/users/p_login'>
 
 	Email<br>
 	<input type='email' name='email' autofocus='autofocus'>

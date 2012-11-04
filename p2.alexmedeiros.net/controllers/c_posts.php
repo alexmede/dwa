@@ -6,14 +6,14 @@ class posts_controller extends base_controller {
 		
 		# Make sure user is logged in if they want to use anything in this controller
 		if(!$this->user) {
-			die("Members only. <a href='/users/login'>Login</a>");
+			die(Router::redirect("/"));
 		}
 	}
 	
 	public function index() {
 		# Set up view
 		$this->template->content = View::instance('v_posts_index');
-		$this->template->title   = "Posts";
+		$this->template->title   = "All Followed Posts";
 	
 		# Build a query of the users this user is following - we're only interested in their posts
 		$q = "SELECT * 
@@ -54,13 +54,17 @@ class posts_controller extends base_controller {
 	public function add() {
 		# Setup view
 		$this->template->content = View::instance('v_posts_add');
-		$this->template->title   = "Add a new post";
+		$this->template->title   = "Submit a New Post";
 			
 		# Render template
 		echo $this->template;
 	}
 	
 	public function p_add() {
+		# Setup view
+		$this->template->content = View::instance('v_posts_p_add');
+		$this->template->title   = "Submit a New Post";
+		
 		# Associate this post with this user
 		$_POST['user_id']  = $this->user->user_id;
 		
@@ -68,26 +72,25 @@ class posts_controller extends base_controller {
 		$_POST['created']  = Time::now();
 		$_POST['modified'] = Time::now();
 		
-		# Insert
 		# Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
 		DB::instance(DB_NAME)->insert('posts', $_POST);
 		
-		# Quick and dirty feedback
-		echo "Your post has been added. <a href='/posts/add'>Add another?</a>";
+		# Render template
+		echo $this->template;
 	}
 	
 	public function users() {
 		# Set up the view
 		$this->template->content = View::instance("v_posts_users");
-		$this->template->title   = "Users";
-	
+		$this->template->title   = "Following List";
+		
 		# Build our query to get all the users
 		$q = "SELECT *
 			FROM users";
 		
 		# Execute the query to get all the users. Store the result array in the variable $users
 		$users = DB::instance(DB_NAME)->select_rows($q);
-	
+		
 		# Build our query to figure out what connections does this user already have? I.e. who are they following
 		$q = "SELECT * 
 			FROM users_users
@@ -98,11 +101,11 @@ class posts_controller extends base_controller {
 		# This will come in handy when we get to the view
 		# Store our results (an array) in the variable $connections
 		$connections = DB::instance(DB_NAME)->select_array($q, 'user_id_followed');
-			
+		
 		# Pass data (users and connections) to the view
 		$this->template->content->users       = $users;
 		$this->template->content->connections = $connections;
-
+		
 		# Render the view
 		echo $this->template;
 	}
@@ -129,6 +132,27 @@ class posts_controller extends base_controller {
 	
 		# Send them back
 		Router::redirect("/posts/users");
+	}
+	
+	public function random() {
+		# Set up view
+		$this->template->content = View::instance('v_posts_index');
+		$this->template->title   = "Random Post";
+	
+		# Query to grab all posts and users
+		$q = "SELECT * 
+			FROM posts, users
+			ORDER BY rand()
+			LIMIT 1";
+				
+		# Run query and store the results in $posts
+		$posts = DB::instance(DB_NAME)->select_rows($q);
+	
+		# Pass data to view
+		$this->template->content->posts = $posts;
+	
+		# Render view
+		echo $this->template;
 	}
 	
 }

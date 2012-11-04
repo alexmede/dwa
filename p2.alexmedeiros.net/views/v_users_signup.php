@@ -1,4 +1,4 @@
-<form method='POST' action='/users/p_signup'>
+<form class='content' method='POST' action='/users/p_signup'>
 
 	First Name<br>
 	<input type='text' name='first_name' autofocus='autofocus'>

@@ -1,9 +1,9 @@
-<form method='POST' action='/posts/p_add'>
+<form class='content' method='POST' action='/posts/p_add'>
 
-	<strong>New Post:</strong><br>
-	<textarea name='content'></textarea>
+	<strong><h2 class='title'>New Post:</h2></strong>
+	<textarea name='content' rows='8' cols='80' autofocus='autofocus'></textarea>
 
 	<br><br>
-	<input type='submit'>
+	<input type='submit' value='Submit'>
 
 </form>

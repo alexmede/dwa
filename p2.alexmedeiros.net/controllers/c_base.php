@@ -25,6 +25,11 @@ class base_controller {
 		# So we can use $user in views
 			$this->template->set_global('user', $this->user);
 			
+		# Load global CSS
+		$client_files = Array(
+			"/css/global.css",
+		);
+		$this->template->client_files = Utils::load_client_files($client_files);
 	}
 	
 }

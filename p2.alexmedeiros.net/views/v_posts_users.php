@@ -1,4 +1,4 @@
-<form method='POST' action='/posts/p_follow'>
+<form class='content' method='POST' action='/posts/p_follow'>
 		
 	<? foreach($users as $user): ?>
 	
