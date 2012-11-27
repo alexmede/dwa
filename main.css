@@ -11,13 +11,8 @@
 
 
 /* Colorful links */
-a:link {
+a:link, a:visited {
 	color: #8ab8e5;
-	text-decoration: none;
-}
-
-a:visited {
-	color: lightgray;
 	text-decoration: none;
 }
 
