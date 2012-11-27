@@ -1,0 +1,85 @@
+@import url("/dwa/main.css");
+
+IMG[alt="Dice Roll"] {
+	margin: -10px auto;
+}
+
+#dice_roll {
+	width: 600px;
+	height: 680px;
+	border: 4px solid orange;
+	border-style: ridge;
+	background-image: url("green.png");
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-weight: bold;
+}
+
+#board {
+	margin-top: -15px;
+}
+
+#bg {
+	text-align: right;
+	color: orange;
+	font-size: 11px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	margin-top: -18px;
+	padding-right: 2px;
+}
+
+#red {
+	color: #aa6067;
+	font-size: 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	padding: 0 2px;
+	cursor: pointer;
+}
+
+#green {
+	color: #51A766;
+	font-size: 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	padding: 0 2px;
+	cursor: pointer;
+}
+
+#blue {
+	color: #537098;
+	font-size: 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	padding: 0 2px;
+	cursor: pointer;
+}
+
+.text {
+	color: orange;
+	font-size: 18px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+}
+
+.num {
+	font-weight: bold;
+	text-shadow: 1px 1px #646464;
+}
+
+#total_text {
+	font-size: 18px;
+	font-weight: bold;
+	text-shadow: 1px 1px #646464;
+}
+
+#total_num {
+	color: #ff6666;
+	font-size: 22px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	padding-top: 5px;
+}
