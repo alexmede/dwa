@@ -9,7 +9,7 @@ IMG[alt="Dice Roll"] {
 	height: 680px;
 	border: 4px solid orange;
 	border-style: ridge;
-	background-image: url("green.png");
+	background-image: url("green.jpg");
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -18,7 +18,7 @@ IMG[alt="Dice Roll"] {
 }
 
 #board {
-	margin-top: -15px;
+	margin-top: -14px;
 }
 
 #bg {
@@ -27,6 +27,7 @@ IMG[alt="Dice Roll"] {
 	font-size: 11px;
 	font-weight: bold;
 	text-shadow: 1px 1px black;
+	filter: Shadow(Color=#1a1a1a, Direction=120, Strength=1);
 	margin-top: -18px;
 	padding-right: 2px;
 }
@@ -63,6 +64,7 @@ IMG[alt="Dice Roll"] {
 	font-size: 18px;
 	font-weight: bold;
 	text-shadow: 1px 1px black;
+	filter: Shadow(Color=#646464, Direction=120, Strength=2);
 }
 
 .num {
@@ -74,6 +76,7 @@ IMG[alt="Dice Roll"] {
 	font-size: 18px;
 	font-weight: bold;
 	text-shadow: 1px 1px #646464;
+	filter: Shadow(Color=#646464, Direction=120, Strength=2);
 }
 
 #total_num {
@@ -82,4 +85,8 @@ IMG[alt="Dice Roll"] {
 	font-weight: bold;
 	text-shadow: 1px 1px black;
 	padding-top: 5px;
+}
+
+span[class*="die"] {
+	padding-right: 3px;
 }
