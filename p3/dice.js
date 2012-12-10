@@ -1,8 +1,11 @@
 $(document).ready(function() {
 
-	$('#red').click(function() {$("#dice_roll").css("background-image", "url('red.jpg')");});
-	$('#green').click(function() {$("#dice_roll").css("background-image", "url('green.jpg')");});
-	$('#blue').click(function() {$("#dice_roll").css("background-image", "url('blue.jpg')");});
+	/* game board background changer */
+	$(".felt").click(function() {
+	
+		$("#dice_roll").css("background-image", "url('"+ $(this).attr('id') +".jpg')");
+	
+	});
 	
 	$("input:button[name=roll]").click(function dice_roll() {
 
