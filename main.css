@@ -47,6 +47,8 @@ body {
 #vert {
 	min-height: 247px;
 	border-left: 2px solid #fff;
+	position: relative;
+	z-index: 1;
 }
 
 
@@ -95,11 +97,14 @@ body {
 	width: 76px;
 	height: 17px;
 	color: orange;
-	border: 2px solid white;
+	border: 2px solid #fff;
 }
 
 #nav a:hover {
 	color: #8ab8e5;
+	border-top: 2px solid orange;
+	border-bottom: 2px solid orange;
+	border-left: 2px solid orange;
 }
 
 
