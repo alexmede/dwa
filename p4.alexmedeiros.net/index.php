@@ -1,25 +1,35 @@
-﻿<!DOCTYPE html>
+<?php
 
-<html>
+# The DOC_ROOT and APP_PATH constant have to happen in the actual app
 
-<head>
+	# Document root, ex: /path/to/home/app.com/../ (uses ./ on CLI)
+	define('DOC_ROOT', empty($_SERVER['DOCUMENT_ROOT']) ? './' : realpath($_SERVER['DOCUMENT_ROOT']).'/../');
+	  
+	# App path, ex: /path/to/home/app.com/
+	define('APP_PATH', realpath(dirname(__FILE__)).'/');
+         
+# Environment
+	require_once DOC_ROOT.'environment.php'; 
+   
+# Where is core located?
+	define('CORE_PATH',  $_SERVER['DOCUMENT_ROOT']."/../core/");
+	   
+# Load app configs
+	require APP_PATH."/config/config.php";
+	require APP_PATH."/config/feature_flags.php";
+	  
+# Bootstrap
+	require CORE_PATH."bootstrap.php";
 
-	<title>DWA Projects</title>
+# Routing
+    Router::$routes = array(
+    	'/' => '/index',     # default controller when "/" is requested
+    );
+    
+# Match requested uri to any routes and instantiate controller
+    Router::init();
+    
+# Display environment details
+	require CORE_PATH."environment-details.php";
 	
-	<meta name="description" content="DWA Projects" />
-	
-	<link rel="icon" type="image/png" href="/dwa/favicon.png" />
-
-</head>
-
-<body>
-
-	<h1 id="home"><a href="http://alexmedeiros.net/" title="Home">alexmedeiros.net</a></h1>
-	
-			<div class="content">
-				<p>Placeholder</p>
-			</div>
-	
-</body>
-
-</html>
+?>

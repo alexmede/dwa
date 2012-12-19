@@ -1,0 +1,164 @@
+@import url("main.css");
+
+IMG[alt="Dice Roll"] {
+	margin: -10px auto;
+}
+
+#dice_roll {
+	width: 450px;
+	height: 500px;
+	border: 4px solid orange;
+	border-style: ridge;
+	background-image: url("/img/green.jpg");
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-weight: bold;
+}
+
+#board {
+	margin-top: -14px;
+}
+
+#bg {
+	text-align: right;
+	color: orange;
+	font-size: 11px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	filter: Shadow(Color=#1a1a1a, Direction=120, Strength=1);
+	margin-top: -18px;
+	padding-right: 2px;
+}
+
+#red {
+	color: #aa6067;
+	font-size: 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	padding: 0 2px;
+	cursor: pointer;
+}
+
+#green {
+	color: #51A766;
+	font-size: 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	padding: 0 2px;
+	cursor: pointer;
+}
+
+#blue {
+	color: #537098;
+	font-size: 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	padding: 0 2px;
+	cursor: pointer;
+}
+
+.text {
+	color: orange;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	filter: Shadow(Color=#646464, Direction=120, Strength=2);
+}
+
+.num {
+	font-size: 18px;
+	font-weight: bold;
+	text-shadow: 1px 1px #646464;
+	border: 4px solid white;
+	border-style: groove;
+}
+
+#total_text {
+	font-size: 18px;
+	font-weight: bold;
+	text-shadow: 1px 1px #646464;
+	filter: Shadow(Color=#646464, Direction=120, Strength=2);
+}
+
+#total_num {
+	color: #ff6666;
+	font-size: 22px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+	padding-top: 5px;
+}
+
+span[class*="die"] {
+	padding-right: 3px;
+}
+
+#submit_score{
+	display: none;
+}
+
+#name_box, #loading_box, #finished_box {
+	display: none;
+	position: absolute;
+	width: 260px;
+	height: 60px;
+	border: 2px solid orange;
+	background: #000000;
+    left: 267px;
+	top: 308px;
+}
+
+#name_box {
+	z-index: 1;
+}
+
+#loading_box {
+	z-index: 2;
+}
+
+#finished_box {
+	z-index: 3;
+}
+
+#inputs {
+	display: block;
+	text-align: center;
+    margin: auto;
+}
+
+#name, #name_box, #loading_box, #finished_box, #view, #again {
+	text-align: center;
+	font-family: "Lucida Console";
+}
+
+#view, #again {
+	font-size: 12px;
+	border: 1px solid orange;
+	margin: auto 6px;
+	padding-top: 2px;
+	cursor: pointer;
+}
+
+#view {
+	color: #51A766;
+}
+
+#again {
+	color: #aa6067;
+}
+
+#view:active, #again:active {
+	background: #1a1a1a;
+}
+
+#score_box {
+	display: none;
+	position: absolute;
+	width: 420px;
+	height: 460px;
+	border: 2px solid orange;
+	background: #000000;
+    left: 359px;
+	top: 388px;
+}
